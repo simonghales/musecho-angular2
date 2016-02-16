@@ -8,16 +8,16 @@
 @import "styles/resources/reset";
 @import "styles/resources/states";
 
-/* Variables - to be used throughout the following scss files */
-@import "styles/resources/variables/general";
-@import "styles/resources/variables/devices";
-@import "styles/resources/variables/spritesheets";
-@import "styles/resources/variables/themes";
-@import "styles/resources/variables/custom.mixins";
+@import "styles/resources/variables/colours";
 
 /* General */
 @import "styles/site/general/base";
+@import "styles/site/general/common";
 @import "styles/site/general/general";
+@import "styles/site/general/typography";
+
+/* Components */
+@import "styles/site/components/intro";
 
 
 /* Do not remove the comments below. It's the markers used by gulp-inject to inject
