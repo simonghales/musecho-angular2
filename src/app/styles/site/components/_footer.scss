@@ -1,0 +1,71 @@
+.attribution {
+  @extend %slide-transition;
+  padding: 80px 0;
+  text-align: center;
+
+  @include small {
+    white-space: nowrap;
+    margin-bottom: 84px;
+  }
+
+  .wrapper {
+    @extend .clearfix;
+    display: inline-block;
+
+    > li {
+      float: left;
+      margin: 0 20px;
+
+      @include small {
+        float: none;
+        margin: 20px 0;
+        display: block;
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.attribution-link,
+.twitterWrapper {
+
+}
+
+.attribution-powered {
+  position: relative;
+  top: -2px;
+
+  @include small {
+    text-align: center;
+
+    img {
+      display: inline-block;
+    }
+
+  }
+
+}
+
+.attribution-twitter {
+  min-width: 143px;
+}
+
+.attribution-hydric {
+
+  img {
+    position: relative;
+    top: 2px;
+  }
+
+}
+
+.attribution-spotify {
+  padding-top: 3px;
+}

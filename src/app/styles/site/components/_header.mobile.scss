@@ -1,0 +1,32 @@
+.app__link {
+  @extend %font--whitelabel--secondary--heavy;
+  color: #FDFDFD;
+  //float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+
+  a {
+    color: inherit;
+    display: inline-block;
+    height: 100%;
+    line-height: #{map-deep-get($site-components, "header", "height-mobile")};
+    text-decoration: none;
+    padding-right: 20px;
+
+    @include small-2 {
+      padding-right: 10px;
+    }
+
+  }
+
+  span {
+    height: 42px;
+    display: inline-block;
+    border-bottom: 2px solid #777777;
+    padding-top: 2px;
+  }
+
+}

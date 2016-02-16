@@ -1,0 +1,136 @@
+@mixin wonder {
+  .theme--wonder & {
+    @content;
+  }
+  &.theme--wonder {
+    @content;
+  }
+}
+
+@mixin whitelabel {
+  .theme--whitelabel & {
+    @content;
+  }
+  &.theme--whitelabel {
+    @content;
+  }
+}
+
+@mixin primary {
+  .theme--primary & {
+    @content;
+  }
+  &.theme--primary {
+    @content;
+  }
+}
+
+// Not fleshed out, so I advise against using
+$name-values: (
+  text: color,
+  background: background-color,
+  header: background-color
+);
+
+$site-values: (
+  wonder: (
+    text: #ffffff,
+    text-played: rgba(255,255,255,0.65),
+    background: #ffffff,
+    track-background: #dadada,
+    track-border: #ffffff,
+    header: rgba(255, 255, 255, 0.98),
+    highlight: #0040fa,
+    sidebar: #f5f5f5,
+    sidebar-hover: #e9e9e9,
+    played-text: rgba(255,255,255,0.65),
+    scrubber-bg: #e6e6e6,
+    overlay: rgba(0,0,0,0.6),
+    overlay-highlight: rgba(0, 64, 250, 0.6),
+    font: '',
+    modal-background: rgba(255, 255, 255, 0.98),
+    modal-border: #e6e6e6
+  ),
+  whitelabel: (
+    text: #ffffff,
+    text-played: rgba(255,255,255,0.65),
+    background: #151515,
+    track-background: #0f0f0f,
+    track-border: #151515,
+    header: rgba(21, 21, 21, 0.98),
+    highlight: #ffffff,
+    sidebar: #212121,
+    sidebar-hover: #1c1c1c,
+    played-text: rgba(255,255,255,0.65),
+    scrubber-bg: #282828,
+    overlay: rgba(0,0,0,0.6),
+    overlay-highlight: rgba(0,0,0,0.8),
+    font: '',
+    modal-background: rgba(21, 21, 21, 0.98),
+    modal-border: #404040
+  ),
+  primary: (
+    text: #ffffff,
+    text-played: rgba(255,255,255,0.65),
+    background: #586382,
+    track-background: transparent,
+    track-border: transparent,
+    header: rgba(88, 99, 130, 0.98),
+    highlight: #ffffff,
+    sidebar: rgba(0,0,0,0.15),
+    sidebar-hover: rgba(0,0,0,0.15),
+    played-text: rgba(255,255,255,0.65),
+    scrubber-bg: rgba(0,0,0,0.15),
+    overlay: rgba(23, 23, 33, 0.95),
+    overlay-highlight: rgba(44, 41, 70, 0.83),
+    font: 'Roboto Mono',
+    modal-background: rgba(23, 23, 33, 0.96),
+    modal-border: #3B3A54
+  )
+);
+
+
+@function get-individual-style($siteName, $key) {
+
+  $map: $site-values;
+
+  $siteObj: map-get($map, $siteName);
+  $value: map-get($siteObj, $key);
+
+  @return $value;
+
+}
+
+@mixin get-individual-style($siteName, $key, $attr) {
+
+  $map: $site-values;
+
+  $siteObj: map-get($map, $siteName);
+  $value: map-get($siteObj, $key);
+
+  #{$attr}: #{$value};
+
+}
+
+@mixin print-styles($key, $attr:'') {
+
+  $map: $site-values;
+
+  @each $site, $obj in $map {
+
+    &.theme--#{$site},
+    .theme--#{$site} & {
+
+      @if $attr != "" {
+        #{$attr}: #{map-get($obj, $key)};
+      }
+
+      @else {
+        #{map-get($name-values, $key)}: #{map-get($obj, $key)};
+      }
+
+    }
+
+  }
+
+}

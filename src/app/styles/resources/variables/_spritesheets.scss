@@ -1,0 +1,46 @@
+
+
+// Spritesheets
+
+$spritesheet-sites: '/assets/images/spritesheets/spritesheet_logos.png';
+$spritesheet-sites-2x: '/assets/images/spritesheets/spritesheet_logos@2x.png';
+$spritesheet-sites-height: 108px;
+$spritesheet-sites-width: 314px;
+
+$spritesheet-wonder: '/assets/images/spritesheets/spritesheet_wonder.png';
+$spritesheet-wonder-2x: '/assets/images/spritesheets/spritesheet_wonder@2x.png';
+$spritesheet-wonder-height: 222px;
+$spritesheet-wonder-width: 1004px;
+
+$spritesheet-whitelabel: '/assets/images/spritesheets/spritesheet_whitelabel.png';
+$spritesheet-whitelabel-2x: '/assets/images/spritesheets/spritesheet_whitelabel@2x.png';
+$spritesheet-whitelabel-height: 222px;
+$spritesheet-whitelabel-width: 1004px;
+
+$spritesheet-primary: '/assets/images/spritesheets/spritesheet_primary.png';
+$spritesheet-primary-2x: '/assets/images/spritesheets/spritesheet_primary@2x.png';
+$spritesheet-primary-height: 222px;
+$spritesheet-primary-width: 1004px;
+
+%spritesheet-wonder {
+  background-repeat: no-repeat;
+  background-image: url($spritesheet-wonder);
+  @include image-2x($spritesheet-wonder-2x, $spritesheet-wonder-width, $spritesheet-wonder-height);
+
+  .theme--primary & {
+    background-image: url($spritesheet-primary);
+    @include image-2x($spritesheet-primary-2x, $spritesheet-primary-width, $spritesheet-primary-height);
+  }
+
+  .theme--whitelabel & {
+    background-image: url($spritesheet-whitelabel);
+    @include image-2x($spritesheet-whitelabel-2x, $spritesheet-whitelabel-width, $spritesheet-whitelabel-height);
+  }
+
+}
+
+%spritesheet-sites {
+  background-repeat: no-repeat;
+  background-image: url($spritesheet-sites);
+  @include image-2x($spritesheet-sites-2x, $spritesheet-sites-width, $spritesheet-sites-height);
+}

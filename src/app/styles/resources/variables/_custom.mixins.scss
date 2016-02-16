@@ -1,0 +1,47 @@
+
+%slide-transition-property {
+  @include transition(transform 300ms ease);
+}
+
+%slide-transition {
+  @extend %slide-transition-property;
+
+  .state--sideBar & {
+    transform: translate(#{map-deep-get($site-components, "sidebar", "width")}, 0);
+
+    @include small-1 {
+      transform: translate(#{map-deep-get($site-components, "sidebar", "width-1")}, 0);
+    }
+
+    @include small-2 {
+      transform: translate(#{map-deep-get($site-components, "sidebar", "width-2")}, 0);
+    }
+
+    @include small-3 {
+      transform: translate(#{map-deep-get($site-components, "sidebar", "width-3")}, 0);
+    }
+
+  }
+
+}
+
+@mixin slide-transition {
+  @include transition(transform 300ms ease);
+
+  .state--sideBar & {
+    transform: translate(#{map-deep-get($site-components, "sidebar", "width")}, 0);
+
+    @include small-1 {
+      transform: translate(#{map-deep-get($site-components, "sidebar", "width-1")}, 0);
+    }
+
+    @include small-2 {
+      transform: translate(#{map-deep-get($site-components, "sidebar", "width-2")}, 0);
+    }
+
+    @include small-3 {
+      transform: translate(#{map-deep-get($site-components, "sidebar", "width-3")}, 0);
+    }
+
+  }
+}

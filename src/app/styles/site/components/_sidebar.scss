@@ -1,0 +1,268 @@
+
+%sidebar-background {
+  @include print-styles('sidebar', 'background-color');
+}
+
+%sidebar-hover {
+  @include print-styles('sidebar-hover', 'background-color');
+}
+
+.sidebar-underlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: $zindex-highest + 10;
+
+  @include small {
+
+    .state--sideBar & {
+      display: block;
+    }
+
+  }
+
+}
+
+.side-bar {
+  @include transition(transform 300ms ease);
+  @extend %sidebar-background;
+  @extend %font--plain;
+
+  position: fixed;
+  top: 72px + 10px;
+  left: 0;
+  bottom: 0;
+  width: #{map-deep-get($site-components, "sidebar", "width")};
+  z-index: $zindex-highest + 20;
+  transform: translate(-#{map-deep-get($site-components, "sidebar", "width")}, 0);
+
+  padding-bottom: 68px;
+
+  @include small {
+    top: #{map-deep-get($site-components, "header", "height-mobile")};
+    overflow-y: auto;
+  }
+
+  @include small-1 {
+    width: #{map-deep-get($site-components, "sidebar", "width-1")};
+  }
+
+  @include small-2 {
+    width: #{map-deep-get($site-components, "sidebar", "width-2")};
+  }
+
+  @include small-3 {
+    width: #{map-deep-get($site-components, "sidebar", "width-3")};
+  }
+
+  .state--sideBar & {
+    transform: translate(0, 0);
+  }
+
+  //.major-links,
+  .secondary-links {
+    margin: 10px 0;
+  }
+
+}
+
+.major-links {
+
+  > li {}
+
+  a {
+    padding: 18px 0 18px 26px;
+    display: block;
+    position: relative;
+
+    min-height: 65px;
+
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      @extend %sidebar-hover;
+    }
+
+  }
+
+  .site-logo-subtitle {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    line-height: 68px;
+    font-size: 14px;
+    color: #AAAAAA;
+
+    @include primary {
+      color: #9BA1B5;
+    }
+
+  }
+
+}
+
+.secondary-links {
+  border-top: 1px solid #dcdcdc;
+  //border-bottom: 1px solid #E2E2E2;
+  padding: 10px 0;
+
+  @include whitelabel {
+    border-color: #2D2D2D;
+  }
+
+  @include primary {
+    border-color: get-individual-style('primary', 'sidebar-hover');
+  }
+
+  > li {}
+
+  a {
+    color: #000000;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 20px 0px;
+
+    min-height: 65px;
+
+    display: flex;
+    align-items: center;
+
+    @include whitelabel {
+      color: get-individual-style('whitelabel', 'text');
+
+      &:hover {
+        background-color: get-individual-style('whitelabel', 'sidebar-hover');
+        color: get-individual-style('whitelabel', 'text');
+      }
+
+    }
+
+    @include primary {
+      color: get-individual-style('primary', 'text');
+
+      &:hover {
+        background-color: get-individual-style('primary', 'sidebar-hover');
+        color: get-individual-style('primary', 'text');
+      }
+
+    }
+
+    &:hover {
+      color: #333333;
+      text-decoration: none;
+    }
+
+    .sprite-icon-wrapper {
+      display: inline-block;
+      min-width: 76px;
+      //margin-right: 16px;
+      text-align: center;
+    }
+
+    .sprite-icon {
+
+    }
+
+  }
+
+}
+
+  .secondary-links__social {
+    display: none;
+
+    @include small {
+      display: block;
+    }
+
+  }
+
+  .sidebar-starred {
+
+    @include touch {
+      display: none;
+    }
+
+  }
+
+.sidebar-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  text-align: center;
+
+  .social-links {
+    margin: 20px 0;
+  }
+
+  .made-by-hydric {
+    margin: 15px;
+  }
+
+}
+
+.social-links {
+
+  .icon {
+    color: #AAAAAA;
+    font-size: 24px;
+
+    &:hover {
+      color: #666666;
+      text-decoration: none;
+    }
+
+  }
+
+}
+
+.link--rectangle {
+  @include border-radius(3px);
+
+  border: 2px solid #999999;
+  color: #999999;
+  display: inline-block;
+  font-size: 13px;
+  padding: 12px 18px;
+
+  &:hover {
+    border-color: #444444;
+    color: #444444;
+    text-decoration: none;
+  }
+
+}
+
+.app-badges {
+  margin-top: 20px;
+  padding-left: 20px;
+
+  @include small {
+    display: none;
+  }
+
+  > li {
+    margin-top: 15px;
+  }
+
+}
+
+  .app-badge {
+    display: block;
+    width: 195px;
+    height: 58px;
+  }
+
+    .app-badge--apple {
+      background-image: url(/assets/images/badges/badge-apple.png);
+    }
+
+    .app-badge--android {
+      background-image: url(/assets/images/badges/badge-google.png);
+    }
