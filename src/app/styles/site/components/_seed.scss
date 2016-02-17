@@ -1,0 +1,52 @@
+
+.seeds-list {
+
+  > li {
+    margin-top: 16px;
+  }
+
+}
+
+.seed {
+  display: flex;
+}
+
+  .seed--add {
+    color: #{map_get($colours, highlight)};
+    font-weight: 700;
+    font-size: 1.2em;
+    font-style: italic;
+  }
+
+  .seed__thumb {
+    @extend .thumb;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(179, 22, 94, 0.06);
+    margin-right: 14px;
+
+    &.thumb--jeza {
+      background-image: url(/assets/images/placeholder/jeza.jpg);
+    }
+
+    &.thumb--spark {
+      background-image: url(/assets/images/placeholder/spark.jpg);
+    }
+
+  }
+
+  .seed__info {
+    display: flex;
+    align-items: center;
+  }
+
+  .seed__title {
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .seed__subtitle {
+    color: #{map_get($colours, highlight)};
+    font-size: 1.2em;
+  }
