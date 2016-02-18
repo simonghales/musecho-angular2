@@ -8,7 +8,31 @@
 }
 
 .seed {
+  @extend %transition-default;
+  cursor: pointer;
   display: flex;
+
+  &:hover {
+    @extend %shadow-red;
+
+    .seed__info {
+      @extend %white-faint;
+    }
+    
+    .remove-button {
+      display: block;
+    }
+
+  }
+
+  &:active {
+
+    .seed__info {
+      @extend %white-faint-active;
+    }
+
+  }
+
 }
 
   .seed--add {
@@ -16,6 +40,12 @@
     font-weight: 700;
     font-size: 1.2em;
     font-style: italic;
+    cursor: pointer;
+
+    &:hover {
+      //color: #{map_get($colours, default)};
+    }
+
   }
 
   .seed__thumb {
@@ -23,7 +53,6 @@
     width: 100px;
     height: 100px;
     background-color: rgba(179, 22, 94, 0.06);
-    margin-right: 14px;
 
     &.thumb--jeza {
       background-image: url(/assets/images/placeholder/jeza.jpg);
@@ -36,8 +65,21 @@
   }
 
   .seed__info {
+    @extend %transition-default;
     display: flex;
+    flex-grow: 1;
     align-items: center;
+    padding-left: 14px;
+    position: relative;
+
+    .remove-button {
+      display: none;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      text-transform: uppercase;
+    }
+
   }
 
   .seed__title {
